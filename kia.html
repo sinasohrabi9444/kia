@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر وکالت پارسیان | خدمات حقوقی تخصصی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #64748b 100%);
+            --accent-gradient: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #f87171 100%);
+            --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fcd34d 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        .glass-morphism {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .primary-gradient {
+            background: var(--primary-gradient);
+        }
+        
+        .accent-gradient {
+            background: var(--accent-gradient);
+        }
+        
+        .gold-gradient {
+            background: var(--gold-gradient);
+        }
+        
+        /* Advanced Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-20px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6), 0 0 60px rgba(220, 38, 38, 0.4); }
+        }
+        
+        @keyframes slide-up {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slide-down {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slide-right {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slide-left {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes scale-in {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes rotate-in {
+            from { transform: rotate(-180deg) scale(0.5); opacity: 0; }
+            to { transform: rotate(0deg) scale(1); opacity: 1; }
+        }
+        
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #dc2626; }
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes bounce-in {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+            20%, 40%, 60%, 80% { transform: translateX(2px); }
+        }
+        
+        /* Animation Classes */
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
+        .animate-slide-down { animation: slide-down 0.8s ease-out forwards; }
+        .animate-slide-right { animation: slide-right 0.8s ease-out forwards; }
+        .animate-slide-left { animation: slide-left 0.8s ease-out forwards; }
+        .animate-scale-in { animation: scale-in 0.6s ease-out forwards; }
+        .animate-rotate-in { animation: rotate-in 0.8s ease-out forwards; }
+        .animate-bounce-in { animation: bounce-in 0.6s ease-out forwards; }
+        .animate-gradient { 
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        /* Hover Effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hover-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.4);
+            transform: scale(1.05);
+        }
+        
+        .hover-rotate {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-rotate:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .hover-slide {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hover-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .hover-slide:hover::before {
+            left: 100%;
+        }
+        
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-left: 3px solid #dc2626;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40, end), blink 0.75s step-end infinite;
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -8px;
+            right: 0;
+            background: var(--accent-gradient);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: var(--accent-gradient);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.4);
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #dc2626;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+        }
+        
+        /* Cards */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+        }
+        
+        /* Parallax */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-block;
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+        
+        /* Counter Animation */
+        .counter {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Testimonial Slider */
+        .testimonial-slider {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Blog Cards */
+        .blog-card {
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .blog-card:hover .blog-image {
+            transform: scale(1.1) rotate(2deg);
+        }
+        
+        .blog-image {
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* Form Animations */
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #dc2626;
+        }
+        
+        .form-label {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: #6b7280;
+        }
+        
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: -8px;
+            font-size: 0.75rem;
+            color: #dc2626;
+            background: white;
+            padding: 0 4px;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .typewriter {
+                font-size: 2rem;
+            }
+            
+            .counter {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .glass-morphism {
+                background: rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gradient);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b91c1c;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 primary-gradient flex items-center justify-center z-50">
+        <div class="text-center text-white">
+            <div class="w-20 h-20 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <h2 class="text-2xl font-bold">دفتر وکالت کیا</h2>
+            <p class="loading-dots">در حال بارگذاری</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-morphism z-40 transition-all duration-500" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4 space-x-reverse animate-slide-right">
+                    <div class="w-14 h-14 accent-gradient rounded-full flex items-center justify-center animate-pulse-glow">
+                        <span class="text-white font-bold text-2xl">Kia</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">دفتر وکالت کیا</h1>
+                        <p class="text-sm text-gray-600">خدمات حقوقی تخصصی</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 space-x-reverse animate-slide-down">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-red-600 font-medium">خانه</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-red-600 font-medium">خدمات</a>
+                    <a href="#portfolio" class="nav-link text-gray-700 hover:text-red-600 font-medium">نمونه کارها</a>
+                    <a href="#blog" class="nav-link text-gray-700 hover:text-red-600 font-medium">وبلاگ</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-red-600 font-medium">تماس</a>
+                </div>
+                
+                <button class="btn-primary text-white px-8 py-3 rounded-full font-medium hover-glow animate-slide-left">
+                    مشاوره رایگان
+                </button>
+                
+                <button class="md:hidden text-gray-700 hover-rotate" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen primary-gradient flex items-center relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-red-500/10 rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-yellow-500/10 rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-20 h-20 bg-blue-500/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-40 right-10 w-28 h-28 bg-green-500/10 rounded-full animate-float" style="animation-delay: 0.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="scroll-animate">
+                        <span class="inline-block px-4 py-2 bg-red-600/20 rounded-full text-sm font-medium mb-6 animate-bounce-in">
+                            ✨ بیش از ۱۵ سال تجربه موفق
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight">
+                        <span class="typewriter block">دفاع از حقوق شما</span>
+                        <span class="block mt-4 text-3xl lg:text-4xl font-medium text-gray-300 animate-slide-up" style="animation-delay: 4s;">
+                            اولویت اول ماست
+                        </span>
+                    </h1>
+                    
+                    <p class="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed scroll-animate" style="animation-delay: 0.5s;">
+                        با تیمی از وکلای مجرب و متخصص، ما آماده ارائه بهترین خدمات حقوقی در تمامی زمینه‌ها هستیم. 
+                        اعتماد شما، مسئولیت ماست.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 scroll-animate" style="animation-delay: 1s;">
+                        <button class="btn-primary text-white px-10 py-4 rounded-full font-bold text-lg hover-lift">
+                            🚀 مشاوره رایگان دریافت کنید
+                        </button>
+                        <button class="btn-secondary px-10 py-4 rounded-full font-bold text-lg border-2 border-white text-white hover:bg-white hover:text-gray-800">
+                            📖 درباره ما بیشتر بدانید
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center space-x-8 space-x-reverse mt-12 scroll-animate" style="animation-delay: 1.5s;">
+                        <div class="flex items-center space-x-2 space-x-reverse">
+                            <div class="flex -space-x-2 space-x-reverse">
+                                <div class="w-10 h-10 bg-red-500 rounded-full border-2 border-white"></div>
+                                <div class="w-10 h-10 bg-blue-500 rounded-full border-2 border-white"></div>
+                                <div class="w-10 h-10 bg-green-500 rounded-full border-2 border-white"></div>
+                            </div>
+                            <span class="text-sm text-gray-300">+۱۵۰۰ موکل راضی</span>
+                        </div>
+                        <div class="flex items-center space-x-1 space-x-reverse">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="text-sm text-gray-300">۴.۹ از ۵</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-animate-right">
+                    <div class="relative">
+                        <div class="glass-morphism p-8 rounded-3xl hover-lift">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-white font-bold text-xl">پرونده فعال</h3>
+                                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3 space-x-reverse">
+                                        <div class="w-12 h-12 accent-gradient rounded-lg flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-white font-medium">پرونده حقوق خانواده</p>
+                                            <p class="text-gray-300 text-sm">وضعیت: در حال بررسی</p>
+                                        </div>
+                                        <span class="text-green-400 font-bold">۹۸%</span>
+                                    </div>
+                                    
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-green-400 h-2 rounded-full animate-pulse" style="width: 98%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-600">
+                                    <div class="text-center">
+                                        <p class="text-2xl font-bold text-white">۱۵</p>
+                                        <p class="text-gray-300 text-xs">سال تجربه</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="text-2xl font-bold text-white">۱۵۰۰+</p>
+                                        <p class="text-gray-300 text-xs">پرونده موفق</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="text-2xl font-bold text-white">۲۴/۷</p>
+                                        <p class="text-gray-300 text-xs">پشتیبانی</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -right-6 w-16 h-16 gold-gradient rounded-full flex items-center justify-center animate-float">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center animate-float" style="animation-delay: 1s;">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-red-50 opacity-50"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center scroll-animate hover-lift">
+                    <div class="counter mb-2" data-target="1500">0</div>
+                    <p class="text-gray-600 font-bold text-lg">پرونده موفق</p>
+                    <div class="w-16 h-1 accent-gradient mx-auto mt-2 rounded-full"></div>
+                </div>
+                <div class="text-center scroll-animate hover-lift" style="animation-delay: 0.2s;">
+                    <div class="counter mb-2" data-target="15">0</div>
+                    <p class="text-gray-600 font-bold text-lg">سال تجربه</p>
+                    <div class="w-16 h-1 accent-gradient mx-auto mt-2 rounded-full"></div>
+                </div>
+                <div class="text-center scroll-animate hover-lift" style="animation-delay: 0.4s;">
+                    <div class="counter mb-2" data-target="98">0</div>
+                    <p class="text-gray-600 font-bold text-lg">درصد موفقیت</p>
+                    <div class="w-16 h-1 accent-gradient mx-auto mt-2 rounded-full"></div>
+                </div>
+                <div class="text-center scroll-animate hover-lift" style="animation-delay: 0.6s;">
+                    <div class="counter mb-2" data-target="24">0</div>
+                    <p class="text-gray-600 font-bold text-lg">ساعته پاسخگویی</p>
+                    <div class="w-16 h-1 accent-gradient mx-auto mt-2 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate">
+                <span class="inline-block px-6 py-2 bg-red-100 text-red-600 rounded-full text-sm font-bold mb-4">
+                    خدمات ما
+                </span>
+                <h2 class="text-4xl lg:text-6xl font-black text-gray-800 mb-6">
+                    خدمات تخصصی حقوقی
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    ما در تمامی زمینه‌های حقوقی با تیمی از وکلای مجرب و متخصص آماده ارائه بهترین خدمات به شما هستیم
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق خانواده</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        طلاق، نفقه، حضانت فرزندان، تقسیم اموال و سایر مسائل خانوادگی با دقت و حساسیت بالا
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm8-2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق تجاری</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        تنظیم قراردادها، ثبت شرکت، حل اختلافات تجاری و مشاوره در امور بازرگانی
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق املاک</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        خرید و فروش املاک، تنظیم سند، حل اختلافات ملکی و مشاوره در امور مسکن
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate" style="animation-delay: 0.6s;">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5zM8 15V9h4v6H8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق کیفری</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        دفاع در پرونده‌های کیفری، تنظیم لایحه دفاعیه و نمایندگی در دادگاه‌های کیفری
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate" style="animation-delay: 0.8s;">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق کار</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        دفاع از حقوق کارگران و کارفرمایان، تنظیم قراردادهای کاری و حل اختلافات کارگری
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card glass-morphism p-8 rounded-3xl hover-lift card-3d scroll-animate" style="animation-delay: 1s;">
+                    <div class="w-20 h-20 accent-gradient rounded-2xl flex items-center justify-center mb-6 mx-auto hover-rotate">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"/>
+                            <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">حقوق بیمه</h3>
+                    <p class="text-gray-600 text-center leading-relaxed mb-6">
+                        پیگیری مطالبات بیمه، دفاع در برابر شرکت‌های بیمه و مشاوره در امور بیمه‌ای
+                    </p>
+                    <div class="text-center">
+                        <button class="btn-secondary px-6 py-2 rounded-full text-sm font-bold">
+                            اطلاعات بیشتر
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate">
+                <span class="inline-block px-6 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-bold mb-4">
+                    نمونه کارها
+                </span>
+                <h2 class="text-4xl lg:text-6xl font-black text-gray-800 mb-6">
+                    موفقیت‌های اخیر ما
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    برخی از پرونده‌های موفق که با تلاش و تخصص تیم ما به نتیجه مطلوب رسیده‌اند
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-card bg-gradient-to-br from-red-50 to-red-100 rounded-3xl overflow-hidden hover-lift scroll-animate">
+                    <div class="h-48 accent-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            موفق
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">پرونده طلاق توافقی</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            حل اختلاف خانوادگی پیچیده در کمتر از ۳ ماه با حفظ منافع طرفین و رضایت کامل موکلین
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold flex items-center">
+                                <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                ۱۰۰% موفق
+                            </span>
+                            <span class="text-gray-500 text-sm">۳ ماه</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl overflow-hidden hover-lift scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="h-48 primary-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm8-2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            موفق
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">قرارداد تجاری بین‌المللی</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            تنظیم قرارداد صادرات ۵ میلیون دلاری با شرایط مطلوب و حمایت کامل از منافع موکل
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold flex items-center">
+                                <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                ۱۰۰% موفق
+                            </span>
+                            <span class="text-gray-500 text-sm">۶ ماه</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-card bg-gradient-to-br from-green-50 to-green-100 rounded-3xl overflow-hidden hover-lift scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="h-48 gold-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            موفق
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">دعوای ملکی</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            بازگرداندن ملک ۲ میلیاردی به موکل پس از ۲ سال پیگیری قضایی و حقوقی مستمر
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-bold flex items-center">
+                                <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                ۱۰۰% موفق
+                            </span>
+                            <span class="text-gray-500 text-sm">۲ سال</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 scroll-animate">
+                <button class="btn-primary text-white px-10 py-4 rounded-full font-bold text-lg hover-glow">
+                    مشاهده تمام نمونه کارها
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 primary-gradient relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate">
+                <span class="inline-block px-6 py-2 bg-white/20 text-white rounded-full text-sm font-bold mb-4">
+                    نظرات موکلین
+                </span>
+                <h2 class="text-4xl lg:text-6xl font-black text-white mb-6">
+                    آنچه موکلین ما می‌گویند
+                </h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    رضایت و اعتماد موکلین ما بهترین نشانه کیفیت خدمات ماست
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass-morphism p-8 rounded-3xl hover-lift scroll-animate">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 accent-gradient rounded-full flex items-center justify-center ml-4">
+                            <span class="text-white font-bold text-xl">ا.م</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">احمد محمدی</h4>
+                            <p class="text-gray-300">کارآفرین</p>
+                            <div class="flex mt-1">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-white leading-relaxed text-lg">
+                        "خدمات فوق‌العاده‌ای دریافت کردم. تیم حرفه‌ای و پاسخگو که در تمام مراحل کنارم بودند. 
+                        واقعاً از انتخابم راضی هستم."
+                    </p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-gray-300 text-sm">۲ هفته پیش</span>
+                        <div class="flex items-center text-green-400">
+                            <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm font-bold">تأیید شده</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass-morphism p-8 rounded-3xl hover-lift scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 gold-gradient rounded-full flex items-center justify-center ml-4">
+                            <span class="text-white font-bold text-xl">س.ر</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">سارا رضایی</h4>
+                            <p class="text-gray-300">مدیر شرکت</p>
+                            <div class="flex mt-1">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-white leading-relaxed text-lg">
+                        "پرونده پیچیده من را با موفقیت حل کردند. تشکر از تیم متخصص دفتر وکالت کیا. 
+                        حتماً به دیگران پیشنهاد می‌دهم."
+                    </p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-gray-300 text-sm">۱ ماه پیش</span>
+                        <div class="flex items-center text-green-400">
+                            <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm font-bold">تأیید شده</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass-morphism p-8 rounded-3xl hover-lift scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center ml-4">
+                            <span class="text-white font-bold text-xl">م.ک</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">محسن کریمی</h4>
+                            <p class="text-gray-300">وکیل</p>
+                            <div class="flex mt-1">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-white leading-relaxed text-lg">
+                        "همکاری بسیار مثبتی داشتیم. رویکرد حرفه‌ای و نتیجه‌محور که باعث رضایت کامل شد. 
+                        قطعاً دوباره همکاری خواهیم کرد."
+                    </p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-gray-300 text-sm">۳ هفته پیش</span>
+                        <div class="flex items-center text-green-400">
+                            <svg class="w-5 h-5 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm font-bold">تأیید شده</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-gray-50 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate">
+                <span class="inline-block px-6 py-2 bg-green-100 text-green-600 rounded-full text-sm font-bold mb-4">
+                    وبلاگ
+                </span>
+                <h2 class="text-4xl lg:text-6xl font-black text-gray-800 mb-6">
+                    آخرین مقالات و اخبار
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    مطالب آموزشی، اخبار حقوقی و نکات مفید برای آگاهی بیشتر شما
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="blog-card bg-white rounded-3xl overflow-hidden shadow-lg hover-lift scroll-animate">
+                    <div class="blog-image h-56 accent-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold">
+                            جدید
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-sm text-red-600 font-bold bg-red-100 px-3 py-1 rounded-full">حقوق خانواده</span>
+                            <span class="text-sm text-gray-500 mr-4">۱۵ آذر ۱۴۰۲</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 leading-tight">راهنمای کامل طلاق توافقی</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            مراحل و شرایط طلاق توافقی و نکات مهم که باید بدانید تا فرآیند را با کمترین استرس طی کنید...
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-red-600 hover:text-red-700 font-bold flex items-center hover-slide">
+                                ادامه مطلب
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/>
+                                </svg>
+                            </a>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                ۱۲۳ بازدید
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card bg-white rounded-3xl overflow-hidden shadow-lg hover-lift scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="blog-image h-56 primary-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 114 0 2 2 0 01-4 0zm8-2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-sm text-blue-600 font-bold bg-blue-100 px-3 py-1 rounded-full">حقوق تجاری</span>
+                            <span class="text-sm text-gray-500 mr-4">۱۲ آذر ۱۴۰۲</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 leading-tight">نکات مهم در تنظیم قراردادها</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            اصول و قوانین مهم که در تنظیم قراردادهای تجاری باید رعایت شود تا از مشکلات آینده جلوگیری کنید...
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-red-600 hover:text-red-700 font-bold flex items-center hover-slide">
+                                ادامه مطلب
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/>
+                                </svg>
+                            </a>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                ۸۹ بازدید
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card bg-white rounded-3xl overflow-hidden shadow-lg hover-lift scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="blog-image h-56 gold-gradient flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="text-sm text-green-600 font-bold bg-green-100 px-3 py-1 rounded-full">حقوق املاک</span>
+                            <span class="text-sm text-gray-500 mr-4">۱۰ آذر ۱۴۰۲</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 leading-tight">خرید خانه: نکات حقوقی</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            آنچه قبل از خرید خانه باید بدانید تا از مشکلات حقوقی جلوگیری کنید و خرید امنی داشته باشید...
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-red-600 hover:text-red-700 font-bold flex items-center hover-slide">
+                                ادامه مطلب
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/>
+                                </svg>
+                            </a>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                ۱۵۶ بازدید
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12 scroll-animate">
+                <button class="btn-primary text-white px-10 py-4 rounded-full font-bold text-lg hover-glow">
+                    مشاهده تمام مقالات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 scroll-animate">
+                <span class="inline-block px-6 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-bold mb-4">
+                    تماس با ما
+                </span>
+                <h2 class="text-4xl lg:text-6xl font-black text-gray-800 mb-6">
+                    آماده پاسخگویی به شما
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    برای دریافت مشاوره رایگان و بررسی پرونده خود با ما در تماس باشید. ما ۲۴ ساعته پاسخگوی شما هستیم
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="scroll-animate-left">
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-6 space-x-reverse hover-lift">
+                            <div class="w-16 h-16 accent-gradient rounded-2xl flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">تلفن تماس</h3>
+                                <p class="text-gray-600 text-lg">۰۲۱-۸۸۷۷۶۶۵۵</p>
+                                <p class="text-gray-500 text-sm">پاسخگویی ۲۴ ساعته</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-6 space-x-reverse hover-lift">
+                            <div class="w-16 h-16 primary-gradient rounded-2xl flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">ایمیل</h3>
+                                <p class="text-gray-600 text-lg">info@parsianlaw.ir</p>
+                                <p class="text-gray-500 text-sm">پاسخ در کمتر از ۲ ساعت</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-6 space-x-reverse hover-lift">
+                            <div class="w-16 h-16 gold-gradient rounded-2xl flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">آدرس</h3>
+                                <p class="text-gray-600 text-lg">تهران، خیابان ولیعصر، پلاک ۱۲۳۴</p>
+                                <p class="text-gray-500 text-sm">طبقه ۵، واحد ۱۰</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-6 space-x-reverse hover-lift">
+                            <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-800">ساعات کاری</h3>
+                                <p class="text-gray-600 text-lg">شنبه تا پنج‌شنبه: ۸ تا ۱۸</p>
+                                <p class="text-gray-500 text-sm">مشاوره اورژانسی ۲۴ ساعته</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 p-8 bg-gradient-to-br from-red-50 to-red-100 rounded-3xl">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">مشاوره رایگان</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            اولین جلسه مشاوره کاملاً رایگان است. با ما تماس بگیرید و از تجربه ۱۵ ساله ما بهره‌مند شوید.
+                        </p>
+                        <button class="btn-primary text-white px-8 py-3 rounded-full font-bold hover-glow">
+                            📞 همین الان تماس بگیرید
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="scroll-animate-right">
+                    <form class="contact-form space-y-6 bg-gray-50 p-8 rounded-3xl">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <input type="text" placeholder=" " class="form-input w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-lg">
+                                <label class="form-label">نام و نام خانوادگی</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder=" " class="form-input w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-lg">
+                                <label class="form-label">شماره تماس</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" placeholder=" " class="form-input w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-lg">
+                            <label class="form-label">ایمیل</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-input w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none text-lg">
+                                <option value="">نوع خدمات مورد نیاز</option>
+                                <option value="family">حقوق خانواده</option>
+                                <option value="commercial">حقوق تجاری</option>
+                                <option value="property">حقوق املاک</option>
+                                <option value="criminal">حقوق کیفری</option>
+                                <option value="labor">حقوق کار</option>
+                                <option value="insurance">حقوق بیمه</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea rows="6" placeholder=" " class="form-input w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none resize-none text-lg"></textarea>
+                            <label class="form-label">توضیحات پرونده</label>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <input type="checkbox" id="privacy" class="w-5 h-5 text-red-600 rounded">
+                            <label for="privacy" class="text-gray-600">
+                                با <a href="#" class="text-red-600 hover:underline">قوانین و مقررات</a> موافقم
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full text-white py-4 rounded-2xl font-bold text-xl hover-glow">
+                            🚀 ارسال درخواست مشاوره
+                        </button>
+                        
+                        <p class="text-center text-gray-500 text-sm">
+                            پس از ارسال فرم، در کمتر از ۳۰ دقیقه با شما تماس خواهیم گرفت
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 primary-gradient opacity-90"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="scroll-animate">
+                    <div class="flex items-center space-x-4 space-x-reverse mb-8">
+                        <div class="w-16 h-16 accent-gradient rounded-2xl flex items-center justify-center">
+                            <span class="text-white font-bold text-2xl">پ</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">دفتر وکالت کیا</h3>
+                            <p class="text-gray-300">خدمات حقوقی تخصصی</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        ما با بیش از ۱۵ سال تجربه در خدمات حقوقی، آماده دفاع از حقوق شما هستیم. 
+                        اعتماد شما، مسئولیت ماست.
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                            <span class="text-lg">📱</span>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                            <span class="text-lg">📧</span>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors">
+                            <span class="text-lg">🌐</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="scroll-animate" style="animation-delay: 0.2s;">
+                    <h4 class="text-xl font-bold mb-8">خدمات ما</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق خانواده</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق تجاری</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق املاک</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق کیفری</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق کار</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حقوق بیمه</a></li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-animate" style="animation-delay: 0.4s;">
+                    <h4 class="text-xl font-bold mb-8">لینک‌های مفید</h4>
+                    <ul class="space-y-4 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">درباره ما</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">نمونه کارها</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">وبلاگ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">تماس با ما</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">سوالات متداول</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors hover:mr-2 duration-300">حریم خصوصی</a></li>
+                    </ul>
+                </div>
+                
+                <div class="scroll-animate" style="animation-delay: 0.6s;">
+                    <h4 class="text-xl font-bold mb-8">اطلاعات تماس</h4>
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+                            </svg>
+                            <p>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</p>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                            <p>۰۲۱-۸۸۷۷۶۶۵۵</p>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <p>info@parsianlaw.ir</p>
+                        </div>
+                        <div class="flex items-center space-x-3 space-x-reverse">
+                            <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                            </svg>
+                            <p>شنبه تا پنج‌شنبه: ۸ تا ۱۸</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-16 pt-8 text-center text-gray-400">
+                <p class="text-lg">
+                    &copy; ۱۴۰۲ دفتر وکالت کیا. تمامی حقوق محفوظ است.
+                    <span class="mx-4">|</span>
+                    طراحی و توسعه با ❤️
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 left-8 w-14 h-14 accent-gradient rounded-full flex items-center justify-center text-white shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-110 z-30">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2500;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 16);
+        }
+
+        // Trigger counter animation when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navbar = document.getElementById('navbar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            // Add mobile menu functionality here
+            console.log('Mobile menu clicked');
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            }
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.visibility = 'visible';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'invisible';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission with advanced animation
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const button = e.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            // Loading animation
+            button.innerHTML = '<div class="flex items-center justify-center"><div class="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin ml-2"></div>در حال ارسال...</div>';
+            button.disabled = true;
+            button.classList.add('opacity-75');
+            
+            setTimeout(() => {
+                // Success animation
+                button.innerHTML = '✅ درخواست شما با موفقیت ارسال شد!';
+                button.classList.remove('opacity-75');
+                button.classList.add('bg-green-500', 'animate-pulse');
+                
+                // Shake animation for success
+                button.style.animation = 'bounce-in 0.6s ease-out';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    button.classList.remove('bg-green-500', 'animate-pulse');
+                    button.style.animation = '';
+                    e.target.reset();
+                    
+                    // Reset form labels
+                    document.querySelectorAll('.form-label').forEach(label => {
+                        label.style.top = '50%';
+                        label.style.fontSize = '1rem';
+                        label.style.color = '#6b7280';
+                    });
+                }, 4000);
+            }, 2000);
+        });
+
+        // Advanced form label animations
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                const label = input.nextElementSibling;
+                if (label && label.classList.contains('form-label')) {
+                    label.style.top = '-8px';
+                    label.style.fontSize = '0.75rem';
+                    label.style.color = '#dc2626';
+                }
+            });
+            
+            input.addEventListener('blur', () => {
+                const label = input.nextElementSibling;
+                if (label && label.classList.contains('form-label') && input.value === '') {
+                    label.style.top = '50%';
+                    label.style.fontSize = '1rem';
+                    label.style.color = '#6b7280';
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Advanced hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-12px) rotateY(5deg) rotateX(5deg)';
+                card.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateY(0deg) rotateX(0deg)';
+                card.style.boxShadow = '';
+            });
+        });
+
+        // Typewriter effect completion
+        setTimeout(() => {
+            const typewriterElement = document.querySelector('.typewriter');
+            if (typewriterElement) {
+                typewriterElement.style.borderLeft = 'none';
+            }
+        }, 4500);
+
+        // Advanced scroll-triggered animations
+        const advancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    // Add staggered animation delays for child elements
+                    const children = element.querySelectorAll('.hover-lift, .card-3d');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.style.animation = 'bounce-in 0.6s ease-out forwards';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('section').forEach(section => {
+            advancedObserver.observe(section);
+        });
+
+        // Mouse cursor trail effect
+        let mouseTrail = [];
+        const trailLength = 10;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseTrail.push({ x: e.clientX, y: e.clientY });
+            
+            if (mouseTrail.length > trailLength) {
+                mouseTrail.shift();
+            }
+            
+            // Create trail effect (optional - can be enabled for more dynamic feel)
+            // This creates a subtle mouse trail effect
+        });
+
+        // Performance optimization: Throttle scroll events
+        let ticking = false;
+        
+        function updateScrollEffects() {
+            // All scroll-based animations go here
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+
+        // Add dynamic favicon change based on scroll position
+        let favicon = document.querySelector("link[rel*='icon']");
+        if (!favicon) {
+            favicon = document.createElement('link');
+            favicon.rel = 'icon';
+            document.head.appendChild(favicon);
+        }
+
+        // Accessibility: Respect user's motion preferences
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        }
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        console.log('🚀 دفتر وکالت کیا - وبسایت با موفقیت بارگذاری شد!');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9742c644d1156526',t:'MTc1NjAzNzcyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
